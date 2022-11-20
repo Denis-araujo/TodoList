@@ -1,0 +1,100 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerContent {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -2rem;
+}
+
+.headerForm form {
+  display: flex;
+  gap: 0.50rem;
+  height: 3.375rem;
+}
+
+.headerForm form > input {
+  width: 40rem;
+  background-color: var(--gray-500);
+  color: var(--gray-300);
+  border: 1px solid var(--gray-700);
+  border-radius: 8px;
+  padding-left: 1rem;
+}
+
+.headerForm form > button {
+  width: 5.625rem;
+  background-color: var(--blue-dark);
+  color: var(--gray-100);
+  border: 1pxx solid var(--blue-dark);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.50rem;
+
+  transition: background-color 0.1s;
+}
+
+.headerForm form > button:hover {
+  background-color: var(--blue);
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 4rem;
+}
+
+.content > header {
+ display: flex;
+ justify-content: space-between;
+ width: 100%;
+}
+
+.content > header span {
+ color: var(--blue);
+ align-items: center;
+}
+
+header span .counter {
+  border-radius: 999px;
+  color: var(--gray-200);
+  background-color: var(--gray-400);
+  padding: 2px 8px;
+}
+
+.todoList {
+  width: 100%;
+  margin-top: 3.3rem;
+  border-top: 1px solid var(--gray-400);
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.todoList svg {
+  margin-top: 4rem;
+}
+
+.todoList > p {
+  color: var(--gray-300);
+  font-weight: 700;
+}
+
+.todoList p:last-child {
+  color: var(--gray-300);
+  font-weight: 400;
+}
