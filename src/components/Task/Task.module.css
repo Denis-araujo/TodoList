@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--gray-500);
+  border: 1px solid var(--gray-400);
+  border-radius: 8px;
+  height: 4.5rem;
+  margin-top: 3.3rem;
+}
+
+.container + .container {
+  margin-top: 2rem;
+}
+
+.container svg {
+  width: 15%;
+  color: var(--gray-300);
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.task p {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray-100);
+}
+
+.task svg {
+  width: 15%;
+  color: var(--blue);
+}

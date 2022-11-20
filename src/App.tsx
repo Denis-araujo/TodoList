@@ -2,6 +2,7 @@ import { Header } from "./components/Header/Header";
 import { ClipboardText, PlusCircle } from "phosphor-react";
 
 import styles from "./App.module.css";
+import { Task } from "./components/Task/Task";
 
 export function App() {
   return (
@@ -30,11 +31,17 @@ export function App() {
           </header>
 
           <div className={styles.todoList}>
+            <Task />
+            <Task />
+            <Task />
+          </div>
+
+          {/* <div className={styles.emptyTaskList}>
             <ClipboardText size={56} />
 
             <p>Você ainda não tem tarefas cadastradas</p>
             <p>Crie tarefas e organize seus itens a fazer</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </main>
