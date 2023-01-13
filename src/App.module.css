@@ -112,9 +112,7 @@ header span .counter {
   font-weight: 400;
 }
 
-
-@media(max-width: 768px) {
-
+@media (max-width: 768px) {
   html {
     font-size: 87.5%;
   }
@@ -127,7 +125,7 @@ header span .counter {
     /* width: 100%; */
   }
 
-  .containerContent{
+  .containerContent {
     width: 23rem;
     display: flex;
     align-items: center;
@@ -135,7 +133,7 @@ header span .counter {
     justify-content: center;
   }
 
-  .headerForm  form  {
+  .headerForm form {
     display: flex;
     gap: 0.5rem;
   }

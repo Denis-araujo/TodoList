@@ -12,7 +12,7 @@ export interface listTaskProps {
 }
 
 export function App() {
-  const [listTask, setListTask] = useState<Array<listTaskProps>>([]);
+  const [listTasks, setListTasks] = useState<listTaskProps[]>([]);
 
   const [newTask, setNewTask] = useState("");
 
@@ -25,37 +25,33 @@ export function App() {
       value: newTask,
     };
 
-    setListTask([...listTask, task]);
+    setListTasks([...listTasks, task]);
     setNewTask("");
   }
 
   function removeTask(taskToRemove: number) {
-    const newListTask = listTask.filter((item) => item.id !== taskToRemove);
+    const newListTask = listTasks.filter((item) => item.id !== taskToRemove);
 
-    setListTask(newListTask);
+    setListTasks(newListTask);
   }
 
-  function checkedTask(taskchecked: number) {
-    const taskchecked2 = listTask.findIndex((task) => task.id === taskchecked);
-
-    const newListTasks = listTask.map((task, indice) => {
-      if (indice === taskchecked2) {
-        const isComplete = task.isComplete;
-
+  function checkedTask(taskChecked: number) {
+    const newListTasks = listTasks.map((task) => {
+      if (task.id === taskChecked) {
         return {
           ...task,
-          isComplete: !isComplete,
+          isComplete: !task.isComplete,
         };
       }
 
       return task;
     });
 
-    setListTask(newListTasks);
+    setListTasks(newListTasks);
   }
 
   function tasksCompleted() {
-    const taskscompleted2 = listTask.reduce(
+    const tasksCompleted = listTasks.reduce(
       (accumulator, currentValue) => {
         if (currentValue.isComplete === true) {
           accumulator.total++;
@@ -70,10 +66,10 @@ export function App() {
       }
     );
 
-    return taskscompleted2.total;
+    return tasksCompleted.total;
   }
 
-  const isListTaskEmpty = listTask.length === 0;
+  const isListTaskEmpty = listTasks.length === 0;
   const isNewTaskEmpty = newTask.length === 0;
 
   return (
@@ -100,14 +96,14 @@ export function App() {
           <header>
             <span>
               Tarefas criadas{" "}
-              <span className={styles.counter}>{listTask.length}</span>
+              <span className={styles.counter}>{listTasks.length}</span>
             </span>
             <span>
               Concluidas{" "}
               <span className={styles.counter}>
                 {isListTaskEmpty
                   ? "0"
-                  : `${tasksCompleted()} de ${listTask.length}`}
+                  : `${tasksCompleted()} de ${listTasks.length}`}
               </span>
             </span>
           </header>
@@ -121,15 +117,19 @@ export function App() {
             </div>
           ) : (
             <div className={styles.todoList}>
-              {listTask.map((task) => {
+              {listTasks.map((task) => {
+                console.log(task)
+
                 return (
                   <Task
-                    key={task.value}
+                    key={task.id}
                     id={task.id}
                     value={task.value}
                     isComplete={task.isComplete}
                     onDeleteTask={removeTask}
-                    onCheckedTask={checkedTask}
+                    onCheckedTask={() => {
+                      checkedTask(task.id)
+                    }}
                   />
                 );
               })}
