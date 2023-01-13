@@ -118,8 +118,6 @@ export function App() {
           ) : (
             <div className={styles.todoList}>
               {listTasks.map((task) => {
-                console.log(task)
-
                 return (
                   <Task
                     key={task.id}
